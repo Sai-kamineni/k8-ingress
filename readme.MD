@@ -10,12 +10,13 @@ eksctl utils associate-iam-oidc-provider \
 curl -o iam-policy.json https://raw.githubusercontent.com/kubernetes-sigs/aws-load-balancer-controller/v2.10.0/docs/install/iam_policy.json
 
 
-# Create an IAM policy named AWSLoadBalancerControllerIAMPolicy
+# Create AWSLoadBalancerControllerIAMPolicy
 aws iam create-policy \
     --policy-name AWSLoadBalancerControllerIAMPolicy \
     --policy-document file://iam-policy.json
 
-# Create an IAM role and Kubernetes ServiceAccount for the LBC. 
+
+# Create Kubernetes ServiceAccount for the LBC. 
 eksctl create iamserviceaccount \
 --cluster=expense \
 --namespace=kube-system \
@@ -32,4 +33,6 @@ helm repo add eks https://aws.github.io/eks-charts
 # Install driver using Helm:
 
 helm install aws-load-balancer-controller eks/aws-load-balancer-controller -n kube-system --set clusterName=expense --set serviceAccount.create=false --set serviceAccount.name=aws-load-balancer-controller
-```
+
+
+## ALB is external component , to connect ALB with EKS we need this derivers
