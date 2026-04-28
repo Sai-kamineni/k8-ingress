@@ -35,4 +35,4 @@ helm repo add eks https://aws.github.io/eks-charts
 helm install aws-load-balancer-controller eks/aws-load-balancer-controller -n kube-system --set clusterName=expense --set serviceAccount.create=false --set serviceAccount.name=aws-load-balancer-controller
 
 
-## ALB is external component , to connect ALB with EKS we need this derivers
+## ALB is external component , to connect ALB with EKS we need this drivers

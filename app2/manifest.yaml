@@ -50,7 +50,7 @@ metadata:
       alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-east-1:315069654700:certificate/eefec79d-8012-4e7e-a530-baf154b833f2
       alb.ingress.kubernetes.io/listen-ports: '[ {"HTTPS": 443}]'
       alb.ingress.kubernetes.io/tags: Environment=dev,Team=test
-      alb.ingress.kubernetes.io/group.name: expense
+      alb.ingress.kubernetes.io/group.name: expense       #If we give this , it will go and create in expense group, else ingress will create new ingress resources( listeber,rules,group)
 spec:
     ingressClassName: alb
     rules:
